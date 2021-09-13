@@ -9,8 +9,8 @@ public class ConsoleInformer  {
 
 
 
-    public void error() {
-        System.out.println("Slot already taken; re-enter slot number:");
+    public void InputCard() {
+        System.out.println("Please, input your card:");
     }
 
     public void turn(String turn) { System.out.println(turn + "'s turn; enter a slot number to place " + turn + " in:"); }

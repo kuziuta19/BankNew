@@ -7,7 +7,7 @@ public class Main{
 
     public static void main(String[] args) {
 
-        Scanner in = new Scanner(System.in);;
+        Scanner in = new Scanner(System.in);
         ConsoleInformer consoleInformer =new ConsoleInformer();
         consoleInformer.InputCard();
         String inputCard = in.nextLine();

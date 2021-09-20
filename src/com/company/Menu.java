@@ -2,8 +2,10 @@ package com.company;
 import java.util.Scanner;
 
 public class Menu {
-
-
+    Menu(Card activeCard){
+      this.activeCard = activeCard;
+    }
+    Card activeCard;
     private Scanner in;
 
     private ConsoleInformer consoleInformer =new ConsoleInformer();
@@ -54,12 +56,12 @@ public class Menu {
         game.NewGame(in);
     }*/
     public void checkMoney(){
-
-    };
+System.out.println("Your money:"+activeCard.getSum());
+    }
     public void receiveCash(){
 
-    };
+    }
     public void cardReplenish(){
 
-    };
+    }
 }

@@ -25,6 +25,10 @@ public class ConsoleInformer  {
         System.out.println("Enter your choice");
     }
 
+    public void yourPin(){
+        System.out.println("Enter your pin");
+    }
+
     public void invalidInputSlot(){
         System.out.println("Invalid input; re-enter slot number:");
     }

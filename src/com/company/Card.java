@@ -1,6 +1,7 @@
 package com.company;
 
-public class Card {
+public class Card{
+
     Card(String cardNumber,int pin,int sum) {
         this.cardNumber = cardNumber;
         this.pin = pin;
@@ -17,12 +18,12 @@ public class Card {
         return true;
         else return false;
     }
-    private int sum;
-    public int getSum(){
+    private long sum;
+    public long getSum(){
         return this.sum;
     }
     private boolean isBlocked = false;
-
-
-
+    public void receiveMoney(long cash){
+        this.sum = this.sum-cash;
+    }
 }

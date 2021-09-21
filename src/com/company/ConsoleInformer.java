@@ -1,7 +1,7 @@
 package com.company;
 
 public class ConsoleInformer  {
-    //public Results gameResults;
+
 
     ConsoleInformer(){
     }
@@ -13,12 +13,14 @@ public class ConsoleInformer  {
         System.out.println("Please, input your card:");
     }
 
-    public void turn(String turn) { System.out.println(turn + "'s turn; enter a slot number to place " + turn + " in:"); }
+    public void CheckMoneyInCard(Card a) { System.out.println("Your money:"+a.getSum());
+ }
+    public void receiveMoney() { System.out.println( "How much money do you want to withdraw? : "); }
 
-    public void win(String winner) { System.out.println("Congratulations! " + winner + "'s have won! Thanks for playing."); }
+    public void cardFindError(){ System.out.println("ATM does not find your card. Input other card!"); }
 
-    public void draw() {
-        System.out.println("It's a draw! Thanks for playing.");
+    public void pinError() {
+        System.out.println("Invalid PIN!");
     }
 
     public void yourChoice(){
@@ -29,8 +31,8 @@ public class ConsoleInformer  {
         System.out.println("Enter your pin");
     }
 
-    public void invalidInputSlot(){
-        System.out.println("Invalid input; re-enter slot number:");
+    public void cardMatchesError(){
+        System.out.println("Invalid input; Your card does not match the template");
     }
 
     public void invalidInputInMenu(){
@@ -43,6 +45,4 @@ public class ConsoleInformer  {
                                                   "1) Receive cash\n" +
                                                   "2) Replenish your card\n"); }
 
-
-    public void enterName(String symbol){ System.out.println("You will play by "+symbol+". Enter your name please.");}
 }

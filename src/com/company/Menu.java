@@ -1,14 +1,16 @@
 package com.company;
 import java.util.Scanner;
 
-public class Menu {
+public class Menu extends CashMachine{
     Menu(Card activeCard){
       this.activeCard = activeCard;
+
     }
     Card activeCard;
     private Scanner in;
 
     private ConsoleInformer consoleInformer =new ConsoleInformer();
+
     private int choiceInput() {
         consoleInformer.yourChoice();
         int yourChoice = in.nextInt();
@@ -27,7 +29,7 @@ public class Menu {
             yourChoice = choiceInput();
             switch (yourChoice) {
                 case 0: {
-                    checkMoney();
+                    checkMoney(activeCard);
                     break;
                 }
                 case 1:{
@@ -37,7 +39,7 @@ public class Menu {
                     cardReplenish();
                     break;}
                 case 3:{
-                    System.exit(0);
+                    super.startCashMachine();
                 }
             }
         }
@@ -52,13 +54,21 @@ public class Menu {
         String nameO = in.nextLine();
         Player playerX = new Player(nameX);
         Player playerO = new Player(nameO);
-        Game game=new Game(results,playerX,playerO);
+        Game gam=new Game(results,playerX,playerO);
         game.NewGame(in);
     }*/
-    public void checkMoney(){
-System.out.println("Your money:"+activeCard.getSum());
+    public void checkMoney(Card a){
+        consoleInformer.CheckMoneyInCard(a);
     }
     public void receiveCash(){
+        long cash;
+        do {
+            consoleInformer.receiveMoney();
+            cash = in.nextLong();
+        }
+        while (activeCard.getSum()<cash&&super.checkMoney(cash));
+        activeCard.receiveMoney(cash);
+        super.receiveMoney(cash);
 
     }
     public void cardReplenish(){

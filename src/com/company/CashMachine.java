@@ -42,7 +42,7 @@ public class CashMachine {
     }
     public void putStateToFile(){
         try{
-            File fileTwo=new File("C:\\Users\\k702_3\\IdeaProjects\\Next\\filetwo.txt");
+            File fileTwo=new File("C:\\Users\\k702_3\\IdeaProjects\\Next\\src\\files\\filetwo.txt");
             FileOutputStream fos=new FileOutputStream(fileTwo);
             PrintWriter pw=new PrintWriter(fos);
             pw.println(this.limit);
@@ -61,7 +61,7 @@ public class CashMachine {
     }
     public void getFileState(){
         try{
-            File toRead=new File("C:\\Users\\k702_3\\IdeaProjects\\Next\\filetwo.txt");
+            File toRead=new File("C:\\Users\\k702_3\\IdeaProjects\\Next\\src\\files\\filetwo.txt");
             FileInputStream fis=new FileInputStream(toRead);
 
             Scanner sc=new Scanner(fis);
@@ -100,7 +100,7 @@ public class CashMachine {
             }
     }catch(Exception e){}
     }
-    public void startCashMachine(){
+    public void startCashMachine() throws IOException, InterruptedException {
 
              Scanner in = new Scanner(System.in);
 

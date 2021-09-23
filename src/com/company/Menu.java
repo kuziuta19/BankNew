@@ -1,6 +1,7 @@
 package com.company;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Map;
 import java.util.Scanner;
@@ -26,7 +27,7 @@ public class Menu extends CashMachine{
         return yourChoice;
     }
 
-    public void startProgram(){
+    public void startProgram() throws IOException, InterruptedException {
 
         int yourChoice;
         in = new Scanner(System.in);
@@ -45,6 +46,7 @@ public class Menu extends CashMachine{
                     cardReplenish();
                     break;}
                 case 3:{
+                    new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
                     super.startCashMachine();
                 }
             }

@@ -2,7 +2,7 @@ package com.company;
 
 public class Card{
 
-    Card(String cardNumber,int pin,int sum) {
+    Card(String cardNumber,int pin,long sum) {
         this.cardNumber = cardNumber;
         this.pin = pin;
         this.sum = sum;
@@ -13,6 +13,9 @@ public class Card{
         return this.cardNumber;
     }
     private int pin;
+    public int getPin(){
+        return this.pin;
+    }
     public boolean checkPin(int pin){
         if(this.pin ==pin)
         return true;
@@ -23,6 +26,9 @@ public class Card{
         return this.sum;
     }
     private boolean isBlocked = false;
+    public boolean getBlockedState(){
+        return this.isBlocked;
+    }
     public void receiveMoney(long cash){
         this.sum = this.sum-cash;
     }

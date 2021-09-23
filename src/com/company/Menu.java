@@ -1,12 +1,17 @@
 package com.company;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.PrintWriter;
+import java.util.Map;
 import java.util.Scanner;
 
+
 public class Menu extends CashMachine{
+
     Menu(Card activeCard){
       this.activeCard = activeCard;
-
     }
-    Card activeCard;
+    public Card activeCard;
     private Scanner in;
 
     private ConsoleInformer consoleInformer =new ConsoleInformer();
@@ -22,6 +27,7 @@ public class Menu extends CashMachine{
     }
 
     public void startProgram(){
+
         int yourChoice;
         in = new Scanner(System.in);
         do {
@@ -45,18 +51,7 @@ public class Menu extends CashMachine{
         }
         while (yourChoice != 3) ;
     }
-    /*public void newGame(){
-        in = new Scanner(System.in);
-        consoleInformer.enterName("X");
-        String nameX = in.nextLine();
 
-        consoleInformer.enterName("O");
-        String nameO = in.nextLine();
-        Player playerX = new Player(nameX);
-        Player playerO = new Player(nameO);
-        Game gam=new Game(results,playerX,playerO);
-        game.NewGame(in);
-    }*/
     public void checkMoney(Card a){
         consoleInformer.CheckMoneyInCard(a);
     }
@@ -66,12 +61,14 @@ public class Menu extends CashMachine{
             consoleInformer.receiveMoney();
             cash = in.nextLong();
         }
-        while (activeCard.getSum()<cash&&super.checkMoney(cash));
+        while (activeCard.getSum()<cash&&super.checkMoney(cash))
+            ;
         activeCard.receiveMoney(cash);
-        super.receiveMoney(cash);
-
+        super.receiveMoney(activeCard.getNumber(),cash);
+        putStateToFile();
     }
     public void cardReplenish(){
-
+        putStateToFile();
     }
+
 }

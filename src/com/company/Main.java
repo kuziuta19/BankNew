@@ -12,7 +12,7 @@ public class Main{
             CashMachine ATM = new CashMachine();
 
             ATM.startCashMachine();
-
+            ATM.closeCashMachine();
 
         }
 

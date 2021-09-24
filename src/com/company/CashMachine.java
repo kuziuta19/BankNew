@@ -69,11 +69,16 @@ public class CashMachine {
                 else consoleInformer.cardFindError();
                 break;
             }
-            else consoleInformer.cardMatchesError();
+            else
+                if(inputCard!="exit")
+                    consoleInformer.cardMatchesError();
 
 
         }
         while (inputCard=="exit");
+    }
+    public void closeCashMachine() {
+        reader.putStateToFile();
     }
 
 }

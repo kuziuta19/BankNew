@@ -9,8 +9,8 @@ public class ConsoleInformer  {
 
 
 
-    public void InputCard() {
-        System.out.println("Please, input your card:");
+    public void startCashMachine() {
+        System.out.println("Please, input your card to make operations \n or \"exit\" to close CashMachine");
     }
 
     public void CheckMoneyInCard(Card a) { System.out.println("Your money:"+a.getSum());

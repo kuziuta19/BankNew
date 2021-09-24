@@ -15,13 +15,13 @@ public class Menu extends CashMachine{
     public Card activeCard;
     private Scanner in;
 
-    private ConsoleInformer consoleInformer =new ConsoleInformer();
+
 
     private int choiceInput() {
-        consoleInformer.yourChoice();
+        CashMachine.consoleInformer.yourChoice();
         int yourChoice = in.nextInt();
         while (!(yourChoice >= 0 && yourChoice <= 3)) {
-            consoleInformer.invalidInputInMenu();
+            CashMachine.consoleInformer.invalidInputInMenu();
             yourChoice = in.nextInt();
         }
         return yourChoice;
@@ -32,7 +32,7 @@ public class Menu extends CashMachine{
         int yourChoice;
         in = new Scanner(System.in);
         do {
-            consoleInformer.printMenu();
+            CashMachine.consoleInformer.printMenu();
             yourChoice = choiceInput();
             switch (yourChoice) {
                 case 0: {
@@ -55,22 +55,22 @@ public class Menu extends CashMachine{
     }
 
     public void checkMoney(Card a){
-        consoleInformer.CheckMoneyInCard(a);
+        CashMachine.consoleInformer.CheckMoneyInCard(a);
     }
     public void receiveCash(){
         long cash;
         do {
-            consoleInformer.receiveMoney();
+            CashMachine.consoleInformer.receiveMoney();
             cash = in.nextLong();
         }
         while (activeCard.getSum()<cash&&super.checkMoney(cash))
             ;
         activeCard.receiveMoney(cash);
         super.receiveMoney(activeCard.getNumber(),cash);
-        putStateToFile();
+
     }
     public void cardReplenish(){
-        putStateToFile();
+
     }
 
 }

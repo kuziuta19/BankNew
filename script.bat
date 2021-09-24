@@ -1,2 +1,2 @@
-cd C:\Users\k702_3\IdeaProjects\Next\out\production\Next
-java com.company.Main
+javac -sourcepath ./src -d out/production/Next src/com/company/Main.java
+java -classpath ./out/production/Next com.company.Main

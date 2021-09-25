@@ -67,7 +67,7 @@ public class Menu extends CashMachine{
             ;
         activeCard.receiveMoney(cash);
         super.receiveMoney(activeCard.getNumber(),cash);
-
+        super.reader.putStateToFile();
     }
     public void cardReplenish(){
 

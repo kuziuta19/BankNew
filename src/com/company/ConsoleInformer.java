@@ -43,6 +43,7 @@ public class ConsoleInformer  {
 
     public void printMenu() { System.out.println( "0) Check your money\n" +
                                                   "1) Receive cash\n" +
-                                                  "2) Replenish your card\n"); }
+                                                  "2) Replenish your card\n"+
+                                                  "3) Back to start page\n"  ); }
 
 }

@@ -10,12 +10,10 @@ import java.util.StringTokenizer;
 public class CashMachine {
 
     FileService reader = new FileService(this);
-    Scanner in = new Scanner(System.in);
     public static ConsoleInformer consoleInformer =new ConsoleInformer();
 
     public Map<String, Card> cards = new HashMap<String, Card>();
     CashMachine(){
-
         reader.getFileState();
     }
 
@@ -33,24 +31,30 @@ public class CashMachine {
 
     }
     public boolean checkMoney(long money){
-                if (money<this.limit)
-                    return true;
-                else return false;
+        if (money<this.limit)
+            return true;
+        else return false;
     }
 
 
     public void startCashMachine() throws IOException, InterruptedException {
 
 
-        consoleInformer.startCashMachine();
-        String inputCard = in.nextLine();
+
+        String inputCard ;
         do
         {
+            consoleInformer.startCashMachine();
+            Scanner in = new Scanner(System.in);
+            inputCard = in.nextLine();
 
-            if (inputCard.matches("\\d{4}\\-\\d{4}\\-\\d{4}\\-\\d{4}"))
+            if (!inputCard.matches("\\d{4}\\-\\d{4}\\-\\d{4}\\-\\d{4}")&&inputCard=="exit")
             {
-                if (cards.containsKey(inputCard))
-                {
+                consoleInformer.cardMatchesError();
+            }
+            else  if (cards.containsKey(inputCard))
+                    {
+                    boolean flag=false;
                     do {
 
                         consoleInformer.yourPin();
@@ -59,20 +63,16 @@ public class CashMachine {
                         if (this.cards.get(inputCard).checkPin(inputPIN)) {
                             Menu menu = new Menu(this.cards.get(inputCard));
                             menu.startProgram();
-
+                            flag=true;
                         }
                         else consoleInformer.pinError();
-                        break;
-                    }
-                    while (true);
-                }
-                else consoleInformer.cardFindError();
-                break;
-            }
-            else
-                if(inputCard!="exit")
-                    consoleInformer.cardMatchesError();
 
+                    }
+                    while (!flag);
+                    }
+                    else{ if(inputCard=="exit")
+                    consoleInformer.cardFindError();
+                    }
 
         }
         while (inputCard=="exit");

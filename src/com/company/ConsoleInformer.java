@@ -15,6 +15,8 @@ public class ConsoleInformer  {
 
     public void CheckMoneyInCard(Card a) { System.out.println("Your money:"+a.getSum());
  }
+    public void cardReplenish() { System.out.println( "How much money? : "); }
+
     public void receiveMoney() { System.out.println( "How much money do you want to withdraw? : "); }
 
     public void cardFindError(){ System.out.println("ATM does not find your card. Input other card!"); }

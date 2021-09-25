@@ -70,7 +70,15 @@ public class Menu extends CashMachine{
         super.reader.putStateToFile();
     }
     public void cardReplenish(){
+        long cash;
 
+        CashMachine.consoleInformer.cardReplenish();
+        cash = in.nextLong();
+
+
+        activeCard.replenishCard(cash);
+        super.replenishCard(activeCard.getNumber(),cash);
+        super.reader.putStateToFile();
     }
 
 }

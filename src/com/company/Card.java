@@ -29,6 +29,10 @@ public class Card{
     public boolean getBlockedState(){
         return this.isBlocked;
     }
+
+    public void replenishCard(long cash){
+        this.sum = this.sum+cash;
+    }
     public void receiveMoney(long cash){
         this.sum = this.sum-cash;
     }

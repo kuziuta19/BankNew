@@ -30,6 +30,12 @@ public class CashMachine {
         this.limit = this.limit-cash;
 
     }
+    public void replenishCard(String cardNumber, long cash){
+        this.cards.get(cardNumber).replenishCard(cash);
+        this.limit = this.limit+cash;
+
+    }
+
     public boolean checkMoney(long money){
         if (money<this.limit)
             return true;
